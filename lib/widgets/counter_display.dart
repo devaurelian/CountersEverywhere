@@ -30,12 +30,13 @@ class CounterDisplay extends StatelessWidget {
 
     return Container(
       alignment: Alignment.center,
-      decoration: BoxDecoration(
-        gradient: RadialGradient(
-          radius: 0.9,
-          colors: [color, Colors.black],
-        ),
-      ),
+      color: color,
+//      decoration: BoxDecoration(
+//        gradient: RadialGradient(
+//          radius: 0.9,
+//          colors: [color, Colors.black],
+//        ),
+//      ),
       padding: const EdgeInsets.all(16.0),
       child: FittedBox(
         fit: BoxFit.fitWidth,

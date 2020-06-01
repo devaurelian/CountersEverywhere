@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:counters_everywhere/utils/random_css_color.dart';
+import 'package:counters_everywhere/utils/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Helper class that saves and reads app settings to persistent storage.
@@ -15,7 +15,7 @@ class SettingsProvider {
     if (prefs.containsKey(_colorCodeKey)) {
       return Color(prefs.getInt(_colorCodeKey));
     } else {
-      final Color color = RandomCSSColor().next();
+      final Color color = ColorX.randomMaterialColor();
       await prefs.setInt(_colorCodeKey, color.value);
       return color;
     }

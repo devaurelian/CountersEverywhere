@@ -2,6 +2,8 @@
 // Use of this source code is governed by an MIT-style license that can be
 // found in the LICENSE file.
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -56,5 +58,16 @@ extension ColorX on Color {
       );
     });
     return MaterialColor(value, swatch);
+  }
+
+  /// Returns a random material shade.
+  static Color randomMaterialColor() {
+    List<Color> _materialShades(MaterialColor mc) =>
+        [50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((index) => mc[index]).toList();
+
+    final Random _random = Random();
+    List<Color> shades =
+        Colors.primaries.map((color) => _materialShades(color)).expand((color) => color).toList();
+    return shades[_random.nextInt(shades.length)];
   }
 }
